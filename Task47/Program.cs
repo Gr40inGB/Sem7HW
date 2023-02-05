@@ -36,12 +36,17 @@ void PrintArray(double[,] arrayForPrint)
     }
 }
 
+int GetNumberInputFromUser()
+{
+    return int.Parse(Console.ReadLine()!);
+}
+
 void Main()
 {
-    System.Console.Write("Программа сгенерирует массив вещественных числел по заданным размерам.\nВведите количество строк: ");
-    int rowCount = int.Parse(Console.ReadLine());
+    System.Console.Write("Программа сгенерирует массив вещественных числе по заданным размерам.\nВведите количество строк: ");
+    int rowCount = GetNumberInputFromUser();
     System.Console.Write("Введите количество столбцов: ");
-    int columnCount = int.Parse(Console.ReadLine());
+    int columnCount = GetNumberInputFromUser();
     System.Console.WriteLine();
     PrintArray(CreateArray(rowCount, columnCount));
 }

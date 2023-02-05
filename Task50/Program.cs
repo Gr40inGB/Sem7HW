@@ -27,15 +27,17 @@ int[,] CreateArray(int rows, int columns)
     return newFilledArray;
 }
 
-void PrintArrayAndX(int[,] arrayForPrint, int xSearch = -1, int ySearch = -1, bool seach = false)
+void PrintArrayAndX(int[,] arrayForPrint, int xSearch = -1, int ySearch = -1, bool search = false)
 {
-    if (seach)
+    int hight = arrayForPrint.GetLength(0);
+    int width = arrayForPrint.GetLength(1);
+    if (search)
     {
         System.Console.WriteLine($"Сгенерированный массив:\n");
     }
-    for (int y = 0; y < arrayForPrint.GetLength(0); y++)
+    for (int y = 0; y < hight; y++)
     {
-        for (int x = 0; x < arrayForPrint.GetLength(1); x++)
+        for (int x = 0; x < width; x++)
         {
             Console.ForegroundColor = (x == xSearch - 1 && ySearch - 1 == y) ? ConsoleColor.DarkRed : ConsoleColor.White;
             System.Console.Write(" {0,3:F0} ", arrayForPrint[y, x]);
@@ -44,9 +46,9 @@ void PrintArrayAndX(int[,] arrayForPrint, int xSearch = -1, int ySearch = -1, bo
         System.Console.WriteLine();
     }
 
-    if (seach)
+    if (search)
     {
-        if (xSearch - 1 < arrayForPrint.GetLength(1) && ySearch - 1 < arrayForPrint.GetLength(0) && xSearch >= 0 && ySearch >= 0)
+        if (xSearch - 1 < width && ySearch - 1 < hight && xSearch >= 0 && ySearch >= 0)
         {
             System.Console.WriteLine($"\nЗначение в указанной ячейке ({ySearch},{xSearch}) равно {arrayForPrint[ySearch - 1, xSearch - 1]}");
         }
@@ -70,7 +72,6 @@ void Main()
     System.Console.Write("Введите номер строки для поиска: "); int yRow = int.Parse(Console.ReadLine()!);
     System.Console.Write($"Введите номер столбца для поиска: "); int xRow = int.Parse(Console.ReadLine()!);
     Console.Clear();
-
     PrintArrayAndX(ourArray, xRow, yRow, true);
 }
 

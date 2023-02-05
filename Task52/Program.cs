@@ -37,9 +37,9 @@ void PrintArray(int[,] arrayForPrint)
 double[] takeAverageArray(int[,] arrayToSummary)
 {
     int hight = arrayToSummary.GetLength(0);
-    int widht = arrayToSummary.GetLength(1);
-    double[] averageLine = new double[widht];
-    for (int x = 0; x < arrayToSummary.GetLength(1); x++)
+    int width = arrayToSummary.GetLength(1);
+    double[] averageLine = new double[width];
+    for (int x = 0; x < width; x++)
     {
         double tempSummColumn = 0;
         for (int y = 0; y < hight; y++)
